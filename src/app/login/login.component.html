@@ -1,0 +1,19 @@
+<div class="container centralizar">
+  <div class="row text-center">
+    <!--tabs-->
+    <div class="row">
+      <div class="col-12">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link" data-toggle="tab" [routerLink]="['signIn']" routerLinkActive="active" role="tab">Logar</a>
+            <a class="nav-item nav-link" data-toggle="tab" routerLink="signUp" role="tab">Cadastrar</a>
+          </div>
+        </nav>
+        
+        <div class="tab-content">
+            <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

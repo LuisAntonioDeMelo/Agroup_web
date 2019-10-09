@@ -5,18 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { LoginComponent } from './login/login.component';
-import { MaterialModule } from './material.module';
+import { SignInComponent } from './login/sign-in/sign-in.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { AmostraAgroComponent } from './amostra-agro/amostra-agro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
-    LoginComponent
+    LoginComponent,
+    SignInComponent,
+    SignUpComponent,
+    AmostraAgroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
