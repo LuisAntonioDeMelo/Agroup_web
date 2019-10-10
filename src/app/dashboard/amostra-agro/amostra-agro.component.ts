@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { url } from 'src/app/util/util';
+import { AmostraAgroService } from './amostra-agro.service';
+import { Agro } from './agro.model';
 
 @Component({
   selector: 'app-amostra-agro',
@@ -8,14 +11,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AmostraAgroComponent implements OnInit {
 
-
+  agro:Agro;
   fileData: File = null;
   previewUrl:any = null;
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
-  constructor(private http:HttpClient) { }
+  success:boolean = false;
+  
+  
+  constructor(private http:HttpClient,
+              private amostraService:AmostraAgroService) 
+              {}
    
   ngOnInit() {
+    //this.amostraService.obterDados().subscribe(agro => this.agro = agro);
   }
    
   fileProgress(fileInput: any) {
@@ -40,12 +49,18 @@ export class AmostraAgroComponent implements OnInit {
   onSubmit() {
       const formData = new FormData();
       formData.append('file', this.fileData);
-      this.http.post('/dash/amostra', formData)
-        .subscribe((res:any) => {
+      this.http.post(`${url}/previsao`, formData).subscribe((res:any) => {
           console.log(res);
-          this.uploadedFilePath = res.data.filePath;
-          alert('SUCCESS !!');
-        }) 
-  }
+          this.uploadedFilePath = res.fileData
+          this.success = true;
+          alert('Enviado  !!');
+        });
+
+        this.amostraService.obterDados()
+        .subscribe(agro => this.agro = agro);
+       
+      }
+
+
 }
 

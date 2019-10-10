@@ -1,30 +1,47 @@
 <div class="container-fluid">
-  <h1 class="h3 mb-2 text-gray-800">Amostra </h1>
-  <p class="mb-4"></p>
-  <div class="row">
-    <div class="col-xl-8 col-lg-7">
-            <div class="row">
-                    <div class="col-md-12 offset-md-3 card shadow" style="padding: 3%">
-                        <h3>Insira uma Imagem</h3>            
-                        <div class="form-group">
-                            <input type="file" name="image" (change)="fileProgress($event)" />
-                        </div>
-                        <div *ngIf="fileUploadProgress">
-                            Upload : {{ fileUploadProgress }}
-                        </div>
-                        <div class="image-preview mb-3" *ngIf="previewUrl">
-                            <img [src]="previewUrl" height="300" />                 
-                        </div>
-             
-                        <div class="mb-3" *ngIf="uploadedFilePath">
-                            {{uploadedFilePath}}
-                        </div>
-                         
-                        <div class="form-group">
-                            <button class="btn btn-success"  (click)="onSubmit()">Enviar</button>
-                        </div>
-                    </div>
-                  </div>
+  <h2 class="h3 mb-2 text-gray-800">Amostra </h2>
+    <div class="col-xl-6">
+      <div class="row">
+        <div class="col-md-6 offset-md-3" style="padding:2%">
+          <h3>Imagem <b>-</b></h3>
+          <div class="form-group">
+            <input type="file" name="image" (change)="fileProgress($event)" />
+          </div>
+          <div *ngIf="fileUploadProgress">
+            Upload : {{ fileUploadProgress }}
+          </div>
+          <div class="image-preview mb-3" *ngIf="previewUrl">
+            <img [src]="previewUrl" height="230px" />
+          </div>
+          <div class="mb-3" *ngIf="uploadedFilePath">
+            {{uploadedFilePath}}
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" (click)="onSubmit()">Enviar</button>
+          </div>
         </div>
+      </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-xl-8" *ngIf="success">
+      <div class="col-md-3">{{agro.acuracia *100}} %</div>
+      <div class="card mb-3">
+        <img class="card-img-top" [src]="previewUrl" width=""  height="300px" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title">{{agro.nome}}</h5>
+          <h5 class="card-title"><small>{{agro.nome_cientifico}}</small></h5>
+          <h6 class="card-title"><b>Tipo : </b> <small>{{agro.classificador}}</small></h6>
+          <p class="card-text">
+              <b>Descrição : </b> {{agro.descricao}}
+          </p>
+          <p class="card-text">
+              <b>Sintomas : </b>{{agro.sintomas}}
+          </p>
+          <p class="card-text"><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>
