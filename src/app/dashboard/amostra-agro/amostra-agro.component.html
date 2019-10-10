@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h1 class="h3 mb-2 text-gray-800">Amostra </h1>
+  <p class="mb-4"></p>
+  <div class="row">
+    <div class="col-xl-8 col-lg-7">
+            <div class="row">
+                    <div class="col-md-12 offset-md-3 card shadow" style="padding: 3%">
+                        <h3>Insira uma Imagem</h3>            
+                        <div class="form-group">
+                            <input type="file" name="image" (change)="fileProgress($event)" />
+                        </div>
+                        <div *ngIf="fileUploadProgress">
+                            Upload : {{ fileUploadProgress }}
+                        </div>
+                        <div class="image-preview mb-3" *ngIf="previewUrl">
+                            <img [src]="previewUrl" height="300" />                 
+                        </div>
+             
+                        <div class="mb-3" *ngIf="uploadedFilePath">
+                            {{uploadedFilePath}}
+                        </div>
+                         
+                        <div class="form-group">
+                            <button class="btn btn-success"  (click)="onSubmit()">Enviar</button>
+                        </div>
+                    </div>
+                  </div>
+        </div>
+    </div>
+  </div>

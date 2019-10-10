@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ObservedValuesFromArray, Observable } from 'rxjs';
 import { Agro } from './agro.model';
 import { HttpClient } from '@angular/common/http';
-import { url, headers } from '../util/util';
+import { url, headers } from '../../util/util';
 
 @Injectable({
   providedIn: 'root'

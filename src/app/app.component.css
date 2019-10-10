@@ -1,17 +1,2 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
-* {
-  margin:0;
-  padding:0;
-  outline:0;
-  box-sizing: border-box;
-}
-.lab {
-  letter-spacing: 3px;
-  display: inline-block;
-  font-size:22px;
-}
-
-html,body,#root {
-  min-height: 100%;
-}
